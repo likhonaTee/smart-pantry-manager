@@ -31,3 +31,17 @@ jobs:
         uses: gradle/actions/wrapper-validation@v4
       - name: Run project checks
         run: bash scripts/check.sh
+      - name: Upload debug APK
+        if: success() && steps.android.outputs.present == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: smart-pantry-debug
+          path: app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+      - name: Upload lint report
+        if: always() && steps.android.outputs.present == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-lint-report
+          path: app/build/reports/lint-results-debug.html
+          if-no-files-found: ignore
