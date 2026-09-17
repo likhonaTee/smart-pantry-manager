@@ -4,7 +4,7 @@ A planned Java Android app that tracks pantry ingredients and suggests recipes o
 
 ## Current state
 
-Android project foundation: a Java PantryActivity and an XML landing screen. Ingredient management, the database, recipe matching and the other screens are not implemented yet. The repository is https://github.com/likhonaTee/smart-pantry-manager. Read docs/FRS.md before building; see docs/TEST_LOG.md for actual verification results.
+The Java Android foundation now includes SQLite tables, pantry database operations and 20 starter recipes. The pantry form and database-backed list are the next steps; recipe matching and the other screens are not implemented yet. The repository is https://github.com/likhonaTee/smart-pantry-manager. Read docs/FRS.md before building; see docs/TEST_LOG.md for actual verification results.
 
 ## Stack
 
@@ -20,7 +20,7 @@ Run the starter gate with:
 bash scripts/check.sh
 ```
 
-This checks required documents and whitespace, then builds the debug APK, runs available Java unit tests and runs Android lint. There are no unit test classes in this initial screen-only milestone. Emulator checks are separate.
+This checks required documents and whitespace, then builds the debug APK, runs Java tests and runs Android lint. Database tests use Robolectric on a simulated Android API 28 runtime to exercise SQLite on the build machine. JUnit and Robolectric are test-only dependencies and are not included in the app. Emulator checks are separate.
 
 ## Setup and run
 
@@ -48,3 +48,7 @@ Launch the app and confirm that the title, introduction and empty pantry message
 ## Toolchain reference
 
 Google (n.d.) Android Gradle Plugin 8.7 release notes. https://developer.android.com/build/releases/agp-8-7-0-release-notes (Accessed 23 October 2026).
+
+Google (n.d.) SQLiteOpenHelper. https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper (Accessed 23 October 2026).
+
+Robolectric (n.d.) Getting started. https://robolectric.org/getting-started/ (Accessed 23 October 2026).
