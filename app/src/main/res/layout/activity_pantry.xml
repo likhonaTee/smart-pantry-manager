@@ -1,62 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="24dp">
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp">
+        android:letterSpacing="0.12"
+        android:text="@string/pantry_label"
+        android:textColor="@color/pantry_green"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:letterSpacing="0.12"
-            android:text="@string/pantry_label"
-            android:textColor="@color/pantry_green"
-            android:textSize="12sp"
-            android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/pantry_heading"
+        android:textColor="@color/pantry_text"
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/pantry_heading"
-            android:textColor="@color/pantry_text"
-            android:textSize="32sp"
-            android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/pantry_description"
+        android:textColor="@color/pantry_muted"
+        android:textSize="16sp" />
 
-        <TextView
+    <TextView
+        android:id="@+id/pantry_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityLiveRegion="polite"
+        android:textColor="@color/pantry_text"
+        android:textSize="16sp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1">
+
+        <ListView
+            android:id="@+id/pantry_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:lineSpacingExtra="4dp"
-            android:text="@string/pantry_description"
-            android:textColor="@color/pantry_muted"
-            android:textSize="16sp" />
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="8dp" />
 
         <LinearLayout
+            android:id="@+id/pantry_empty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_gravity="center"
             android:background="@drawable/pantry_card"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="28dp">
+            android:padding="24dp">
 
             <ImageView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:importantForAccessibility="no"
                 android:src="@drawable/ic_pantry" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="12dp"
                 android:gravity="center"
                 android:text="@string/pantry_empty_title"
                 android:textColor="@color/pantry_text"
@@ -72,14 +89,14 @@
                 android:textColor="@color/pantry_muted"
                 android:textSize="16sp" />
         </LinearLayout>
+    </FrameLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:gravity="center"
-            android:text="@string/pantry_footer"
-            android:textColor="@color/pantry_muted"
-            android:textSize="14sp" />
-    </LinearLayout>
-</ScrollView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="@string/pantry_footer"
+        android:textColor="@color/pantry_muted"
+        android:textSize="14sp" />
+</LinearLayout>
