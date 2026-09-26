@@ -47,3 +47,7 @@ Database tests use JUnit 4.13.2 and Robolectric 4.14.1 with Android API 28. Thes
 | 2026-10-23 | Pantry list build and lint | Build and all current tests pass | scripts/check.sh passed; lint reports No issues found | Pass |
 
 The list tests use Robolectric. The updated screen still needs visual review on the user's emulator, including rotation and large system fonts.
+
+## GitHub SDK setup correction
+
+The GitHub run for 5b0cc4a stopped at SDK setup before app checks because setup-android requested the removed package named tools. Earlier Android runs had the same setup failure. The workflow now requests only platform-tools, platforms;android-35 and build-tools;34.0.0. The next GitHub run will verify this correction; local app checks passed separately.
