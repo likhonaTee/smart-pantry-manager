@@ -91,12 +91,15 @@
         </LinearLayout>
     </FrameLayout>
 
-    <TextView
+    <Button
+        android:id="@+id/add_ingredient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:gravity="center"
-        android:text="@string/pantry_footer"
-        android:textColor="@color/pantry_muted"
-        android:textSize="14sp" />
+        android:backgroundTint="@color/pantry_green"
+        android:minHeight="48dp"
+        android:text="@string/add_ingredient"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
 </LinearLayout>

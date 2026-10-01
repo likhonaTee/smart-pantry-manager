@@ -6,7 +6,22 @@
     <string name="pantry_description">Keep track of your ingredients and make the most of every leftover.</string>
     <string name="pantry_empty_title">No ingredients yet</string>
     <string name="pantry_empty_message">Your pantry ingredients will appear here.</string>
-    <string name="pantry_footer">Less waste. More possibilities.</string>
     <string name="quantity_and_unit">%1$s %2$s</string>
     <string name="pantry_load_error">Could not load your pantry. Please reopen this screen to try again.</string>
+    <string name="add_ingredient">Add ingredient</string>
+    <string name="ingredient_name_label">Ingredient name</string>
+    <string name="ingredient_quantity_label">Quantity</string>
+    <string name="ingredient_unit_label">Unit</string>
+    <string name="ingredient_unit_help">Use count for eggs, bananas or slices of bread.</string>
+    <string name="save_ingredient">Save ingredient</string>
+    <string name="invalid_name">Enter an ingredient name of 1 to 60 characters.</string>
+    <string name="invalid_quantity">Enter an amount above 0 and up to 1000000, using at most 3 decimal places.</string>
+    <string name="ingredient_save_error">Could not save your ingredient. Your entries are still here. Please try again.</string>
+    <string-array name="ingredient_units">
+        <item>g</item>
+        <item>kg</item>
+        <item>ml</item>
+        <item>l</item>
+        <item>count</item>
+    </string-array>
 </resources>

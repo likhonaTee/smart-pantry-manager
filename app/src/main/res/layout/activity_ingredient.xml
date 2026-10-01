@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/ingredient_name"
+            android:text="@string/ingredient_name_label"
+            android:textColor="@color/pantry_text"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/ingredient_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:importantForAutofill="no"
+            android:inputType="textCapWords"
+            android:maxLength="60"
+            android:minHeight="48dp"
+            android:textColor="@color/pantry_text"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:labelFor="@id/ingredient_quantity"
+            android:text="@string/ingredient_quantity_label"
+            android:textColor="@color/pantry_text"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/ingredient_quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="0123456789.,"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:maxLength="16"
+            android:minHeight="48dp"
+            android:textColor="@color/pantry_text"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:labelFor="@id/ingredient_unit"
+            android:text="@string/ingredient_unit_label"
+            android:textColor="@color/pantry_text"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/ingredient_unit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/ingredient_units"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/ingredient_unit_help"
+            android:textColor="@color/pantry_muted"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/save_ingredient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/pantry_green"
+            android:minHeight="48dp"
+            android:text="@string/save_ingredient"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/ingredient_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:accessibilityLiveRegion="polite"
+            android:textColor="@color/pantry_text"
+            android:textSize="16sp" />
+    </LinearLayout>
+</ScrollView>

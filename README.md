@@ -4,7 +4,7 @@ A planned Java Android app that tracks pantry ingredients and suggests recipes o
 
 ## Current state
 
-The Java Android app includes SQLite tables, pantry database operations, 20 starter recipes and a database-backed pantry list with a custom adapter. The ingredient form is next; recipe matching and the other screens are not implemented yet. The repository is https://github.com/likhonaTee/smart-pantry-manager. Read docs/FRS.md before building; see docs/TEST_LOG.md for actual verification results.
+The Java Android app includes SQLite tables, 20 starter recipes, a pantry list with a custom adapter and an Add ingredient form with validation. Editing and deleting through the form are next; recipe matching and the other screens are not implemented yet. The repository is https://github.com/likhonaTee/smart-pantry-manager. Read docs/FRS.md before building; see docs/TEST_LOG.md for actual verification results.
 
 ## Stack
 
@@ -44,6 +44,8 @@ On Windows Command Prompt or PowerShell, use gradlew.bat instead of bash gradlew
 ## First device check
 
 Launch the app and confirm that the title, introduction and empty pantry message are legible. Rotate the device, use a larger system font and check that the page can scroll without hiding text. These checks still need an actual emulator or device; do not treat a successful build as proof that they passed.
+
+Tap Add ingredient, enter Eggs with quantity 2 and unit count, then save. Check that Eggs appears in the pantry. Close and reopen the app to confirm it remains. Try saving a blank name or zero quantity and confirm a field error appears. Unsaved form entries should survive rotation.
 
 ## Toolchain reference
 
