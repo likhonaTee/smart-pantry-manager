@@ -4,7 +4,7 @@ A planned Java Android app that tracks pantry ingredients and suggests recipes o
 
 ## Current state
 
-The Java Android app includes SQLite tables, 20 starter recipes, a pantry list with a custom adapter and an Add ingredient form with validation. Editing and deleting through the form are next; recipe matching and the other screens are not implemented yet. The repository is https://github.com/likhonaTee/smart-pantry-manager. Read docs/FRS.md before building; see docs/TEST_LOG.md for actual verification results.
+The Java Android app includes SQLite tables, 20 starter recipes, a pantry list with a custom adapter and one ingredient form for adding, editing and deleting saved stock. Input validation and deletion confirmation are implemented. Recipe matching, suggestions, details and settings are not implemented yet. The repository is https://github.com/likhonaTee/smart-pantry-manager. Read docs/FRS.md before building; see docs/TEST_LOG.md for actual verification results.
 
 ## Stack
 
@@ -46,6 +46,10 @@ On Windows Command Prompt or PowerShell, use gradlew.bat instead of bash gradlew
 Launch the app and confirm that the title, introduction and empty pantry message are legible. Rotate the device, use a larger system font and check that the page can scroll without hiding text. These checks still need an actual emulator or device; do not treat a successful build as proof that they passed.
 
 Tap Add ingredient, enter Eggs with quantity 2 and unit count, then save. Check that Eggs appears in the pantry. Close and reopen the app to confirm it remains. Try saving a blank name or zero quantity and confirm a field error appears. Unsaved form entries should survive rotation.
+
+Tap the saved Eggs row, change its quantity to 3 and save. Reopen the app and confirm the change persists. Open the row again and tap Delete ingredient. Choose Cancel and confirm the row remains. Repeat and confirm deletion; the list should return to its empty state. Rotate the edit form before saving to check it updates the existing row rather than adding another one.
+
+For an existing clone, run git pull --ff-only from the project folder, let Android Studio sync, then press Run to update the installed app. If Git reports local changes, preserve them and resolve the conflict before pulling; do not discard them just to update the app.
 
 ## Toolchain reference
 

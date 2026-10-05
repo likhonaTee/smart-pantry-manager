@@ -1,5 +1,6 @@
 package com.smartpantry.manager;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
+import org.robolectric.Shadows;
 import org.robolectric.android.controller.ActivityController;
 import org.robolectric.annotation.Config;
 
@@ -61,5 +63,29 @@ public class PantryActivityTest {
         controller.pause().resume();
         assertEquals(2, list.getAdapter().getCount());
         assertEquals(View.GONE, activity.findViewById(R.id.pantry_empty).getVisibility());
+    }
+
+    @Test
+    public void addButtonOpensAnEmptyIngredientForm() {
+        controller = Robolectric.buildActivity(PantryActivity.class).setup();
+        PantryActivity activity = controller.get();
+        activity.findViewById(R.id.add_ingredient).performClick();
+        Intent intent = Shadows.shadowOf(activity).getNextStartedActivity();
+        assertEquals(IngredientActivity.class.getName(), intent.getComponent().getClassName());
+        assertFalse(intent.hasExtra(IngredientActivity.EXTRA_INGREDIENT_ID));
+    }
+
+    @Test
+    public void tappingARowPassesItsDatabaseIdToTheForm() {
+        long id;
+        try (DatabaseHelper database = new DatabaseHelper(RuntimeEnvironment.getApplication())) {
+            id = database.addPantryItem("Eggs", "egg", "2", "count");
+        }
+        controller = Robolectric.buildActivity(PantryActivity.class).setup();
+        PantryActivity activity = controller.get();
+        ListView list = activity.findViewById(R.id.pantry_list);
+        list.performItemClick(null, 0, id);
+        Intent intent = Shadows.shadowOf(activity).getNextStartedActivity();
+        assertEquals(id, intent.getLongExtra(IngredientActivity.EXTRA_INGREDIENT_ID, -1));
     }
 }
