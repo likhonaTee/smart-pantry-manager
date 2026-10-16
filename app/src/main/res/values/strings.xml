@@ -24,6 +24,13 @@
     <string name="cancel">Cancel</string>
     <string name="ingredient_unavailable">This ingredient is no longer available. Please reopen it from your pantry.</string>
     <string name="ingredient_delete_error">Could not delete this ingredient. Please try again.</string>
+    <string name="pantry_menu">Pantry</string>
+    <string name="recipes_menu">Recipes</string>
+    <string name="suggested_recipes">Suggested recipes</string>
+    <string name="suggestions_heading">What can you cook?</string>
+    <string name="suggestions_description">Recipes shown here use only ingredients you have, in the quantities required.</string>
+    <string name="no_recipes_match">No recipes match your pantry yet. Add more ingredients to get started.</string>
+    <string name="recipes_load_error">Could not load recipes. Please reopen this screen to try again.</string>
     <string-array name="ingredient_units">
         <item>g</item>
         <item>kg</item>

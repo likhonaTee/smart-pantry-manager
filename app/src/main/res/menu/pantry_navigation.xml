@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_pantry"
+        android:showAsAction="never"
+        android:title="@string/pantry_menu" />
+    <item
+        android:id="@+id/nav_recipes"
+        android:showAsAction="ifRoom"
+        android:title="@string/recipes_menu" />
+</menu>
