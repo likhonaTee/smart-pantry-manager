@@ -1,6 +1,7 @@
 package com.smartpantry.manager;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,6 +31,11 @@ public class SuggestionsActivity extends Activity {
         ListView list = findViewById(R.id.suggestions_list);
         list.setAdapter(adapter);
         list.setEmptyView(findViewById(R.id.suggestions_empty));
+        list.setOnItemClickListener((parent, view, position, id) -> {
+            Intent intent = new Intent(this, RecipeDetailActivity.class);
+            intent.putExtra(RecipeDetailActivity.EXTRA_RECIPE_ID, suggestions.get(position).id);
+            startActivity(intent);
+        });
     }
 
     @Override
