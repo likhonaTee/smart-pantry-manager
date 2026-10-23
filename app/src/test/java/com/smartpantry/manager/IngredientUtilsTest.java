@@ -1,6 +1,7 @@
 package com.smartpantry.manager;
 
 import org.junit.Test;
+import java.math.BigDecimal;
 
 import static org.junit.Assert.*;
 
@@ -29,5 +30,32 @@ public class IngredientUtilsTest {
         for (String input : invalid) {
             assertNull(input, IngredientUtils.validQuantity(input));
         }
+    }
+
+    @Test
+    public void convertsCompatibleUnitsExactly() {
+        assertEquals(0, new BigDecimal("200").compareTo(
+                IngredientUtils.toBaseQuantity("0.2", "kg")));
+        assertEquals(0, new BigDecimal("1000").compareTo(
+                IngredientUtils.toBaseQuantity("1", "l")));
+        assertEquals(0, new BigDecimal("0.125").compareTo(
+                IngredientUtils.toBaseQuantity("0.125", "g")));
+        assertEquals(0, new BigDecimal("2").compareTo(
+                IngredientUtils.toBaseQuantity("2", "count")));
+    }
+
+    @Test
+    public void keepsMassVolumeAndCountSeparate() {
+        assertEquals("g", IngredientUtils.baseUnit("kg"));
+        assertEquals("ml", IngredientUtils.baseUnit("l"));
+        assertEquals("count", IngredientUtils.baseUnit("count"));
+        assertNotEquals(IngredientUtils.baseUnit("g"), IngredientUtils.baseUnit("ml"));
+        assertNotEquals(IngredientUtils.baseUnit("count"), IngredientUtils.baseUnit("g"));
+        assertNull(IngredientUtils.baseUnit("cup"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void doesNotGuessConversionsForUnsupportedUnits() {
+        IngredientUtils.toBaseQuantity("1", "cup");
     }
 }

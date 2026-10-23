@@ -33,4 +33,26 @@ public class IngredientUtils {
         }
         return quantity.stripTrailingZeros().toPlainString();
     }
+
+    public static String baseUnit(String unit) {
+        switch (unit) {
+            case "g":
+            case "kg": return "g";
+            case "ml":
+            case "l": return "ml";
+            case "count": return "count";
+            default: return null;
+        }
+    }
+
+    public static BigDecimal toBaseQuantity(String quantity, String unit) {
+        if (baseUnit(unit) == null) {
+            throw new IllegalArgumentException("Unsupported unit: " + unit);
+        }
+        BigDecimal amount = new BigDecimal(quantity);
+        if (unit.equals("kg") || unit.equals("l")) {
+            return amount.multiply(new BigDecimal("1000"));
+        }
+        return amount;
+    }
 }
