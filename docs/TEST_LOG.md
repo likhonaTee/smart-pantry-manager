@@ -38,3 +38,12 @@ Database tests use JUnit 4.13.2 and Robolectric 4.14.1 with Android API 28. Thes
 | --- | --- | --- | --- | --- |
 | 2026-10-23 | DatabaseHelperTest | Pantry CRUD persists; recipes seed once; IDs and quoted input handled safely | 6 tests passed with no failures or skipped tests | Pass |
 | 2026-10-23 | Database milestone build and lint | Debug APK builds and lint passes | scripts/check.sh passed; lint reports No issues found | Pass |
+
+## Pantry list milestone
+
+| Date | Check | Expected result | Observed result | Status |
+| --- | --- | --- | --- | --- |
+| 2026-10-23 | PantryActivityTest | Empty state shown; adapter displays saved data and refreshes on resume | 2 Activity tests passed alongside 6 database tests | Pass |
+| 2026-10-23 | Pantry list build and lint | Build and all current tests pass | scripts/check.sh passed; lint reports No issues found | Pass |
+
+The list tests use Robolectric. The updated screen still needs visual review on the user's emulator, including rotation and large system fonts.

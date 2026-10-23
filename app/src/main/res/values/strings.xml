@@ -7,4 +7,6 @@
     <string name="pantry_empty_title">No ingredients yet</string>
     <string name="pantry_empty_message">Your pantry ingredients will appear here.</string>
     <string name="pantry_footer">Less waste. More possibilities.</string>
+    <string name="quantity_and_unit">%1$s %2$s</string>
+    <string name="pantry_load_error">Could not load your pantry. Please reopen this screen to try again.</string>
 </resources>
