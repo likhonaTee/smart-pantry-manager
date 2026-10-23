@@ -26,4 +26,15 @@ During setup, the SDK archive extracted the platform files into an extra directo
 | 2026-10-23 | testDebugUnitTest | Run available Java tests | NO-SOURCE because this milestone has no test classes | Not applicable |
 | 2026-10-23 | Device launch layout rotation and font scaling | Screen remains readable | No emulator or connected device available | Not run |
 
-Full pantry CRUD, persistence, recipe matching, seed, settings and navigation tests remain pending implementation. The initial landing screen is not completion of FR01.
+The initial landing screen is not completion of FR01. Later implementation checks are recorded below.
+
+## Database milestone
+
+The user's 23 October screenshot shows the app installed and its landing screen displayed in Android Studio's Pixel 8 Pro emulator. Rotation, font scaling and data entry were not shown.
+
+Database tests use JUnit 4.13.2 and Robolectric 4.14.1 with Android API 28. These are build-machine tests, not physical-device evidence. Full matching, settings and navigation checks remain pending.
+
+| Date | Check | Expected result | Observed result | Status |
+| --- | --- | --- | --- | --- |
+| 2026-10-23 | DatabaseHelperTest | Pantry CRUD persists; recipes seed once; IDs and quoted input handled safely | 6 tests passed with no failures or skipped tests | Pass |
+| 2026-10-23 | Database milestone build and lint | Debug APK builds and lint passes | scripts/check.sh passed; lint reports No issues found | Pass |

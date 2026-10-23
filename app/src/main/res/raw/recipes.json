@@ -1,0 +1,402 @@
+[
+  {
+    "name": "Boiled eggs",
+    "method": "1. Cover the eggs with the water in a small pan.\n2. Bring to the boil and cook for 10 minutes.\n3. Drain carefully, cool and peel.",
+    "ingredients": [
+      {
+        "name": "egg",
+        "quantity": "2",
+        "unit": "count"
+      },
+      {
+        "name": "water",
+        "quantity": "1000",
+        "unit": "ml"
+      }
+    ]
+  },
+  {
+    "name": "Scrambled eggs",
+    "method": "1. Beat the eggs in a bowl.\n2. Melt the butter in a pan over low heat.\n3. Add the eggs and stir until fully set.",
+    "ingredients": [
+      {
+        "name": "egg",
+        "quantity": "2",
+        "unit": "count"
+      },
+      {
+        "name": "butter",
+        "quantity": "10",
+        "unit": "g"
+      }
+    ]
+  },
+  {
+    "name": "Tomato omelette",
+    "method": "1. Chop the tomato and beat the eggs.\n2. Heat the oil and soften the tomato.\n3. Add the eggs and cook until fully set, then fold.",
+    "ingredients": [
+      {
+        "name": "egg",
+        "quantity": "2",
+        "unit": "count"
+      },
+      {
+        "name": "tomato",
+        "quantity": "200",
+        "unit": "g"
+      },
+      {
+        "name": "oil",
+        "quantity": "5",
+        "unit": "ml"
+      }
+    ]
+  },
+  {
+    "name": "Buttered toast",
+    "method": "1. Toast the bread in a toaster or dry pan.\n2. Spread with the butter and serve.",
+    "ingredients": [
+      {
+        "name": "bread",
+        "quantity": "2",
+        "unit": "count"
+      },
+      {
+        "name": "butter",
+        "quantity": "10",
+        "unit": "g"
+      }
+    ]
+  },
+  {
+    "name": "Cheese toast",
+    "method": "1. Toast the bread on one side in a dry pan.\n2. Turn it over and place the cheese on top.\n3. Cover the pan and heat gently until the cheese melts.",
+    "ingredients": [
+      {
+        "name": "bread",
+        "quantity": "2",
+        "unit": "count"
+      },
+      {
+        "name": "cheese",
+        "quantity": "40",
+        "unit": "g"
+      }
+    ]
+  },
+  {
+    "name": "Peanut butter toast",
+    "method": "1. Toast the bread.\n2. Spread the peanut butter evenly over both slices.",
+    "ingredients": [
+      {
+        "name": "bread",
+        "quantity": "2",
+        "unit": "count"
+      },
+      {
+        "name": "peanut butter",
+        "quantity": "30",
+        "unit": "g"
+      }
+    ]
+  },
+  {
+    "name": "Banana toast",
+    "method": "1. Toast the bread.\n2. Spread with peanut butter.\n3. Slice the banana and arrange it on top.",
+    "ingredients": [
+      {
+        "name": "bread",
+        "quantity": "2",
+        "unit": "count"
+      },
+      {
+        "name": "peanut butter",
+        "quantity": "20",
+        "unit": "g"
+      },
+      {
+        "name": "banana",
+        "quantity": "1",
+        "unit": "count"
+      }
+    ]
+  },
+  {
+    "name": "Banana oats",
+    "method": "1. Put the oats and water in a small pan.\n2. Simmer, stirring, until the oats soften.\n3. Mash the banana and stir it through.",
+    "ingredients": [
+      {
+        "name": "oats",
+        "quantity": "50",
+        "unit": "g"
+      },
+      {
+        "name": "water",
+        "quantity": "200",
+        "unit": "ml"
+      },
+      {
+        "name": "banana",
+        "quantity": "1",
+        "unit": "count"
+      }
+    ]
+  },
+  {
+    "name": "Milk porridge",
+    "method": "1. Combine the oats and milk in a pan.\n2. Heat gently, stirring often, until the oats soften.\n3. Serve warm.",
+    "ingredients": [
+      {
+        "name": "oats",
+        "quantity": "50",
+        "unit": "g"
+      },
+      {
+        "name": "milk",
+        "quantity": "250",
+        "unit": "ml"
+      }
+    ]
+  },
+  {
+    "name": "Plain rice",
+    "method": "1. Bring the water to a boil.\n2. Add the rice, cover and lower the heat.\n3. Cook until tender and the water is absorbed, then rest off the heat.",
+    "ingredients": [
+      {
+        "name": "rice",
+        "quantity": "100",
+        "unit": "g"
+      },
+      {
+        "name": "water",
+        "quantity": "250",
+        "unit": "ml"
+      }
+    ]
+  },
+  {
+    "name": "Tomato rice",
+    "method": "1. Chop the onion and tomato.\n2. Soften the onion in the oil, then add the tomato.\n3. Stir in the uncooked rice and water.\n4. Cover and simmer until the rice is tender.",
+    "ingredients": [
+      {
+        "name": "rice",
+        "quantity": "100",
+        "unit": "g"
+      },
+      {
+        "name": "water",
+        "quantity": "250",
+        "unit": "ml"
+      },
+      {
+        "name": "tomato",
+        "quantity": "150",
+        "unit": "g"
+      },
+      {
+        "name": "onion",
+        "quantity": "50",
+        "unit": "g"
+      },
+      {
+        "name": "oil",
+        "quantity": "5",
+        "unit": "ml"
+      }
+    ]
+  },
+  {
+    "name": "Egg rice",
+    "method": "1. Simmer the rice in the water until tender.\n2. Heat the oil in a pan and scramble the eggs until set.\n3. Add the cooked rice and stir until hot throughout.",
+    "ingredients": [
+      {
+        "name": "rice",
+        "quantity": "100",
+        "unit": "g"
+      },
+      {
+        "name": "water",
+        "quantity": "250",
+        "unit": "ml"
+      },
+      {
+        "name": "egg",
+        "quantity": "2",
+        "unit": "count"
+      },
+      {
+        "name": "oil",
+        "quantity": "5",
+        "unit": "ml"
+      }
+    ]
+  },
+  {
+    "name": "Boiled potatoes",
+    "method": "1. Scrub the potatoes and cut into even pieces.\n2. Cover with the water in a small pan.\n3. Boil until tender, then drain carefully.",
+    "ingredients": [
+      {
+        "name": "potato",
+        "quantity": "300",
+        "unit": "g"
+      },
+      {
+        "name": "water",
+        "quantity": "1000",
+        "unit": "ml"
+      }
+    ]
+  },
+  {
+    "name": "Mashed potatoes",
+    "method": "1. Peel and cut the potatoes.\n2. Boil in the water until tender and drain.\n3. Mash with the butter and milk.",
+    "ingredients": [
+      {
+        "name": "potato",
+        "quantity": "300",
+        "unit": "g"
+      },
+      {
+        "name": "water",
+        "quantity": "1000",
+        "unit": "ml"
+      },
+      {
+        "name": "butter",
+        "quantity": "15",
+        "unit": "g"
+      },
+      {
+        "name": "milk",
+        "quantity": "50",
+        "unit": "ml"
+      }
+    ]
+  },
+  {
+    "name": "Pan fried potatoes",
+    "method": "1. Scrub the potatoes and cut into thin slices.\n2. Heat the oil in a pan and add the potato slices.\n3. Cover and cook gently, turning often, until tender.\n4. Uncover and cook until golden.",
+    "ingredients": [
+      {
+        "name": "potato",
+        "quantity": "250",
+        "unit": "g"
+      },
+      {
+        "name": "oil",
+        "quantity": "15",
+        "unit": "ml"
+      }
+    ]
+  },
+  {
+    "name": "Tomato and onion salad",
+    "method": "1. Wash and chop the tomato.\n2. Peel and finely slice the onion.\n3. Toss both with the lemon juice and serve.",
+    "ingredients": [
+      {
+        "name": "tomato",
+        "quantity": "200",
+        "unit": "g"
+      },
+      {
+        "name": "onion",
+        "quantity": "50",
+        "unit": "g"
+      },
+      {
+        "name": "lemon juice",
+        "quantity": "10",
+        "unit": "ml"
+      }
+    ]
+  },
+  {
+    "name": "Cucumber and tomato salad",
+    "method": "1. Wash and slice the cucumber and tomato.\n2. Toss with the oil and serve.",
+    "ingredients": [
+      {
+        "name": "cucumber",
+        "quantity": "200",
+        "unit": "g"
+      },
+      {
+        "name": "tomato",
+        "quantity": "100",
+        "unit": "g"
+      },
+      {
+        "name": "oil",
+        "quantity": "5",
+        "unit": "ml"
+      }
+    ]
+  },
+  {
+    "name": "Carrot ribbons",
+    "method": "1. Wash and peel the carrot.\n2. Use the peeler to cut thin ribbons.\n3. Toss with the oil and lemon juice.",
+    "ingredients": [
+      {
+        "name": "carrot",
+        "quantity": "150",
+        "unit": "g"
+      },
+      {
+        "name": "oil",
+        "quantity": "5",
+        "unit": "ml"
+      },
+      {
+        "name": "lemon juice",
+        "quantity": "10",
+        "unit": "ml"
+      }
+    ]
+  },
+  {
+    "name": "Buttered pasta",
+    "method": "1. Bring the water to a boil and add the pasta.\n2. Cook until tender, then drain.\n3. Toss with the butter and serve.",
+    "ingredients": [
+      {
+        "name": "pasta",
+        "quantity": "100",
+        "unit": "g"
+      },
+      {
+        "name": "water",
+        "quantity": "1000",
+        "unit": "ml"
+      },
+      {
+        "name": "butter",
+        "quantity": "10",
+        "unit": "g"
+      }
+    ]
+  },
+  {
+    "name": "Tomato pasta",
+    "method": "1. Boil the pasta in the water until tender, then drain.\n2. Chop the tomato and soften it in the oil in a pan.\n3. Stir the cooked pasta into the tomato and heat through.",
+    "ingredients": [
+      {
+        "name": "pasta",
+        "quantity": "100",
+        "unit": "g"
+      },
+      {
+        "name": "water",
+        "quantity": "1000",
+        "unit": "ml"
+      },
+      {
+        "name": "tomato",
+        "quantity": "200",
+        "unit": "g"
+      },
+      {
+        "name": "oil",
+        "quantity": "10",
+        "unit": "ml"
+      }
+    ]
+  }
+]

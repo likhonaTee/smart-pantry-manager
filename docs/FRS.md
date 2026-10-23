@@ -2,9 +2,9 @@
 
 ## Document control
 
-Version 1.1 | 23 October 2026 | Status: baseline for development
+Version 1.2 | 23 October 2026 | Status: baseline for development
 Module: Mobile App Development 700
-Implementation status: Android project foundation created; application features and device checks are still pending. Consult TEST_LOG.md for actual build results.
+Implementation status: Android foundation and SQLite storage with 20 recipes implemented. Pantry screen integration and remaining features are in progress. Consult TEST_LOG.md for actual build and test results.
 
 ## Purpose
 
