@@ -91,3 +91,12 @@ The user reported the pantry checks were all good. Their screenshots show a save
 | 2026-10-23 | Matching milestone checks | Build all tests and lint pass | scripts/check.sh passed; 33 tests passed; lint reports No issues found | Pass |
 
 Suggestions are independent cooking options and do not consume stock. Invalid empty recipes and unsupported requirements are rejected. The test with 0.199 kg against a 200 g requirement verifies that a shortage cannot round up to a match.
+
+## Suggested recipes screen milestone
+
+| Date | Check | Expected result | Observed result | Status |
+| --- | --- | --- | --- | --- |
+| 2026-10-23 | SuggestionsActivityTest | Empty state; Scrambled eggs appears with sufficient stock and disappears when butter is removed | 2 Activity tests passed with live database reads on resume | Pass |
+| 2026-10-23 | Suggestions milestone checks | Build all tests and lint pass | scripts/check.sh passed; 35 tests passed; lint reports No issues found | Pass |
+
+The pantry and suggestions layouts use an outer inset container to preserve the inner 24 dp content margins. Lint's UselessParent warning is suppressed only on those deliberate inner containers, with an explanatory XML comment. Updated layouts still need emulator visual review.

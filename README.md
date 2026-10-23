@@ -4,7 +4,7 @@ A planned Java Android app that tracks pantry ingredients and suggests recipes o
 
 ## Current state
 
-The Java Android app includes SQLite tables, 20 starter recipes, a pantry list with a custom adapter and one ingredient form for adding, editing and deleting saved stock. Input validation and deletion confirmation are implemented. Recipe matching, suggestions, details and settings are not implemented yet. The repository is https://github.com/likhonaTee/smart-pantry-manager. Read docs/FRS.md before building; see docs/TEST_LOG.md for actual verification results.
+The Java Android app includes SQLite tables, 20 starter recipes, pantry CRUD and strict recipe matching. Open Recipes from the toolbar or overflow menu to see only recipes whose complete ingredient requirements are met. Recipe details and settings are next. The repository is https://github.com/likhonaTee/smart-pantry-manager. Read docs/FRS.md before building; see docs/TEST_LOG.md for actual verification results.
 
 ## Stack
 
@@ -50,6 +50,10 @@ Tap Add ingredient, enter Eggs with quantity 2 and unit count, then save. Check 
 Tap the saved Eggs row, change its quantity to 3 and save. Reopen the app and confirm the change persists. Open the row again and tap Delete ingredient. Choose Cancel and confirm the row remains. Repeat and confirm deletion; the list should return to its empty state. Rotate the edit form before saving to check it updates the existing row rather than adding another one.
 
 For an existing clone, run git pull --ff-only from the project folder, let Android Studio sync, then press Run to update the installed app. If Git reports local changes, preserve them and resolve the conflict before pulling; do not discard them just to update the app.
+
+## Recipe matching check
+
+Add Eggs with quantity 2 and unit count, and Butter with quantity 10 and unit g. Open Recipes from the toolbar or overflow menu. Scrambled eggs should appear. Reduce Butter to 9 g and return to Recipes; it must disappear. Change Butter to 0.01 kg and it should appear again. Deleting either required ingredient must exclude it. No pantry staples are assumed to be available automatically.
 
 ## Toolchain reference
 

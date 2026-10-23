@@ -12,6 +12,9 @@
             android:name=".IngredientActivity"
             android:exported="false" />
         <activity
+            android:name=".SuggestionsActivity"
+            android:exported="false" />
+        <activity
             android:name=".PantryActivity"
             android:exported="true">
             <intent-filter>

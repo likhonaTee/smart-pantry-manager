@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.database.sqlite.SQLiteException;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -39,6 +41,24 @@ public class PantryActivity extends Activity {
         } catch (SQLiteException exception) {
             error.setText(R.string.pantry_load_error);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.pantry_navigation, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.nav_recipes) {
+            startActivity(new Intent(this, SuggestionsActivity.class));
+            return true;
+        }
+        if (item.getItemId() == R.id.nav_pantry) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
