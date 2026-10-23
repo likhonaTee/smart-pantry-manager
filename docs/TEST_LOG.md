@@ -51,3 +51,13 @@ The list tests use Robolectric. The updated screen still needs visual review on 
 ## GitHub SDK setup correction
 
 The GitHub run for 5b0cc4a stopped at SDK setup before app checks because setup-android requested the removed package named tools. Earlier Android runs had the same setup failure. The workflow now requests only platform-tools, platforms;android-35 and build-tools;34.0.0. The next GitHub run will verify this correction; local app checks passed separately.
+
+## Ingredient form milestone
+
+| Date | Check | Expected result | Observed result | Status |
+| --- | --- | --- | --- | --- |
+| 2026-10-23 | Name and quantity rules | Aliases and decimals normalized; invalid amounts rejected | 3 IngredientUtils tests passed | Pass |
+| 2026-10-23 | Add form validation and recreation | Valid data saved; invalid data refused; unsaved values restored | 3 IngredientActivity tests passed | Pass |
+| 2026-10-23 | Full form milestone checks | Build all tests and lint pass | scripts/check.sh passed; 14 total tests passed; lint reports No issues found | Pass |
+
+Name cleaning is introduced with data entry so saved rows already use canonical keys. Unit conversions remain planned with recipe matching. The updated form still needs user emulator review.

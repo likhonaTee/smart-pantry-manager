@@ -1,6 +1,7 @@
 package com.smartpantry.manager;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.database.sqlite.SQLiteException;
 import android.widget.ListView;
@@ -19,6 +20,8 @@ public class PantryActivity extends Activity {
         ListView list = findViewById(R.id.pantry_list);
         list.setAdapter(adapter);
         list.setEmptyView(findViewById(R.id.pantry_empty));
+        findViewById(R.id.add_ingredient).setOnClickListener(view ->
+                startActivity(new Intent(this, IngredientActivity.class)));
     }
 
     @Override
