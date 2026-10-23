@@ -4,9 +4,9 @@ A planned Java Android app that tracks pantry ingredients and suggests recipes o
 
 ## Current state
 
-Planning baseline only. No Android source, Gradle wrapper or working APK exists yet. The repository is https://github.com/likhonaTee/smart-pantry-manager. The FRS is in docs/FRS.md. Read it before building.
+Android project foundation: a Java PantryActivity and an XML landing screen. Ingredient management, the database, recipe matching and the other screens are not implemented yet. The repository is https://github.com/likhonaTee/smart-pantry-manager. Read docs/FRS.md before building; see docs/TEST_LOG.md for actual verification results.
 
-## Planned stack
+## Stack
 
 Android Studio, Java, XML layouts, five Activities, a custom ListView adapter, SQLiteOpenHelper and SharedPreferences. SQLite keeps the app local and avoids backend setup. Exactly 20 recipes will be seeded.
 
@@ -20,16 +20,31 @@ Run the starter gate with:
 bash scripts/check.sh
 ```
 
-Until the Android project exists, this checks documentation and whitespace only. It does not validate an Android application.
+This checks required documents and whitespace, then builds the debug APK, runs available Java unit tests and runs Android lint. There are no unit test classes in this initial screen-only milestone. Emulator checks are separate.
 
 ## Setup and run
 
-Pending implementation. Clone this repository, then create an Android Studio Java project at this repository root without replacing existing documentation. Record the tested Android Studio, SDK, JDK, Gradle and Android plugin versions here, and align .java-version with the chosen toolchain.
+1. Clone this repository through Android Studio using Get from VCS, or download and extract the source ZIP from GitHub.
+2. Open the repository root containing settings.gradle. Do not create a second Android project inside it.
+3. In SDK Manager, install Android SDK Platform 35 and SDK Build Tools 34.0.0.
+4. Select JDK 17 for Gradle in Android Studio settings. Allow Gradle sync to download dependencies.
+5. Create an emulator using API 26 or higher, or connect an Android 8.0 or newer device with USB debugging enabled.
+6. Select the app run configuration and press Run. The Smart Pantry landing screen should open.
 
-Once the Gradle wrapper and app exist, open this folder in Android Studio, sync Gradle, choose an emulator or device and run app. Verification commands will be:
+Android Studio writes local.properties for your local SDK path; keep this file out of Git. Android Studio itself has not been run in the build environment. The project uses Android Gradle Plugin 8.7.3, Gradle 8.9, JDK 17, compile/target SDK 35 and minimum SDK 26. Use an Android Studio release supporting AGP 8.7.3.
+
+From the root, build and check using Git Bash, macOS or Linux:
 
 ```bash
 bash gradlew assembleDebug testDebugUnitTest lintDebug
 ```
 
-These commands have not run yet. Device steps and exact tested versions will be added after the project is created.
+On Windows Command Prompt or PowerShell, use gradlew.bat instead of bash gradlew. The debug APK is written to app/build/outputs/apk/debug/app-debug.apk. GitHub Actions also uploads that APK when the build succeeds. Debug builds are for development and testing.
+
+## First device check
+
+Launch the app and confirm that the title, introduction and empty pantry message are legible. Rotate the device, use a larger system font and check that the page can scroll without hiding text. These checks still need an actual emulator or device; do not treat a successful build as proof that they passed.
+
+## Toolchain reference
+
+Google (n.d.) Android Gradle Plugin 8.7 release notes. https://developer.android.com/build/releases/agp-8-7-0-release-notes (Accessed 23 October 2026).

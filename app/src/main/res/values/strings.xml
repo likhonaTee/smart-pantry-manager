@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smart Pantry</string>
+    <string name="pantry_label">YOUR PANTRY</string>
+    <string name="pantry_heading">Good food starts\nwith what you have.</string>
+    <string name="pantry_description">Keep track of your ingredients and make the most of every leftover.</string>
+    <string name="pantry_empty_title">No ingredients yet</string>
+    <string name="pantry_empty_message">Your pantry ingredients will appear here.</string>
+    <string name="pantry_footer">Less waste. More possibilities.</string>
+</resources>

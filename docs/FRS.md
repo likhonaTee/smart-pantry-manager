@@ -2,9 +2,9 @@
 
 ## Document control
 
-Version 1.0 | 23 October 2026 | Status: baseline for development
+Version 1.1 | 23 October 2026 | Status: baseline for development
 Module: Mobile App Development 700
-Implementation status: planning only; no Android application has been built or tested yet.
+Implementation status: Android project foundation created; application features and device checks are still pending. Consult TEST_LOG.md for actual build results.
 
 ## Purpose
 
@@ -36,7 +36,7 @@ One person uses the app on one Android device. They maintain their pantry, view 
 
 ## Technology baseline
 
-Android Studio is the IDE. All application source code is Java, with XML for layouts and resources. Use SQLiteOpenHelper for pantry and recipe storage, SharedPreferences for the units display setting, and a ListView with a custom adapter for pantry rows. Use five Activities and explicit Intents for navigation. Choose and record compatible SDK, Java, Gradle and Android plugin versions when the Android project is created; do not guess them now.
+Android Studio is the IDE. All application source code is Java, with XML for layouts and resources. Use SQLiteOpenHelper for pantry and recipe storage, SharedPreferences for the units display setting, and a ListView with a custom adapter for pantry rows. Use five Activities and explicit Intents for navigation. The foundation pins Android Gradle Plugin 8.7.3, Gradle 8.9, JDK 17, compile and target SDK 35, and minimum SDK 26. The AGP 8.7 compatibility table confirms Gradle 8.9, JDK 17 and SDK 35 support. See the official reference in README.md; actual check results belong in TEST_LOG.md.
 
 ## Simple code rules
 
@@ -189,7 +189,7 @@ Use short messages stating the change. Implement each milestone only when reache
 
 ## Automation
 
-The starter includes a GitHub Actions workflow for pushes and pull requests. It checks the documentation and whitespace now. Once gradlew exists, it checks the wrapper files and runs assembleDebug, testDebugUnitTest and lintDebug with the JDK pinned in .java-version. The provisional JDK value is 17; confirm it against the selected Android toolchain before implementation. A documentation-only pass is not evidence that the app builds.
+The project includes a GitHub Actions workflow for pushes and pull requests. It checks documentation, whitespace and the Gradle wrapper, then runs assembleDebug, testDebugUnitTest and lintDebug with JDK 17 pinned in .java-version. It uploads the debug APK after a successful build. The initial screen-only milestone has no unit test classes; a NO-SOURCE unit-test task is not a passed behavioural test. Device checks remain separate.
 
 ## Repository and identity
 
