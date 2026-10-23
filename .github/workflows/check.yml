@@ -26,6 +26,9 @@ jobs:
       - name: Prepare Android SDK
         if: steps.android.outputs.present == 'true'
         uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-35 build-tools;34.0.0'
+          log-accepted-android-sdk-licenses: false
       - name: Validate Gradle wrapper
         if: steps.android.outputs.present == 'true'
         uses: gradle/actions/wrapper-validation@v4
