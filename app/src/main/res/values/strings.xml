@@ -31,6 +31,10 @@
     <string name="suggestions_description">Recipes shown here use only ingredients you have, in the quantities required.</string>
     <string name="no_recipes_match">No recipes match your pantry yet. Add more ingredients to get started.</string>
     <string name="recipes_load_error">Could not load recipes. Please reopen this screen to try again.</string>
+    <string name="recipe_details">Recipe details</string>
+    <string name="recipe_ingredients_heading">Ingredients required</string>
+    <string name="recipe_method_heading">Method</string>
+    <string name="recipe_unavailable">This recipe is not available. Please return to Suggested recipes.</string>
     <string-array name="ingredient_units">
         <item>g</item>
         <item>kg</item>

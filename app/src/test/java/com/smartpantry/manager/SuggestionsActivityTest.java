@@ -1,5 +1,6 @@
 package com.smartpantry.manager;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ListView;
 
@@ -10,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
+import org.robolectric.Shadows;
 import org.robolectric.android.controller.ActivityController;
 import org.robolectric.annotation.Config;
 
@@ -58,5 +60,19 @@ public class SuggestionsActivityTest {
         controller.pause().resume();
         assertEquals(0, list.getAdapter().getCount());
         assertEquals(View.VISIBLE, controller.get().findViewById(R.id.suggestions_empty).getVisibility());
+    }
+
+    @Test
+    public void rowSelectionPassesTheRecipeIdToDetails() {
+        try (DatabaseHelper database = new DatabaseHelper(RuntimeEnvironment.getApplication())) {
+            database.addPantryItem("Eggs", "egg", "2", "count");
+            database.addPantryItem("Butter", "butter", "10", "g");
+        }
+        controller = Robolectric.buildActivity(SuggestionsActivity.class).setup();
+        ListView list = controller.get().findViewById(R.id.suggestions_list);
+        list.performItemClick(null, 0, 0);
+        Intent intent = Shadows.shadowOf(controller.get()).getNextStartedActivity();
+        assertEquals(RecipeDetailActivity.class.getName(), intent.getComponent().getClassName());
+        assertEquals(2, intent.getLongExtra(RecipeDetailActivity.EXTRA_RECIPE_ID, -1));
     }
 }

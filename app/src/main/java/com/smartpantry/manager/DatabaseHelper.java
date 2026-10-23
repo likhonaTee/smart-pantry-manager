@@ -149,6 +149,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return recipes;
     }
 
+    public Recipe getRecipe(long id) {
+        try (Cursor cursor = getReadableDatabase().query("recipes", new String[]{"id", "name", "method"},
+                "id = ?", new String[]{String.valueOf(id)}, null, null, null)) {
+            if (!cursor.moveToFirst()) {
+                return null;
+            }
+            return new Recipe(cursor.getLong(0), cursor.getString(1), cursor.getString(2),
+                    getRecipeIngredients(id));
+        }
+    }
+
     private List<RecipeIngredient> getRecipeIngredients(long recipeId) {
         List<RecipeIngredient> ingredients = new ArrayList<>();
         try (Cursor cursor = getReadableDatabase().query("recipe_ingredients",

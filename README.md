@@ -4,7 +4,7 @@ A planned Java Android app that tracks pantry ingredients and suggests recipes o
 
 ## Current state
 
-The Java Android app includes SQLite tables, 20 starter recipes, pantry CRUD and strict recipe matching. Open Recipes from the toolbar or overflow menu to see only recipes whose complete ingredient requirements are met. Recipe details and settings are next. The repository is https://github.com/likhonaTee/smart-pantry-manager. Read docs/FRS.md before building; see docs/TEST_LOG.md for actual verification results.
+The Java Android app includes SQLite tables, 20 starter recipes, pantry CRUD, strict recipe matching and recipe details. Open Recipes from the toolbar or overflow menu to see only recipes whose complete ingredient requirements are met, then tap a recipe to read its ingredients and method. The required settings screen is next. The repository is https://github.com/likhonaTee/smart-pantry-manager. Read docs/FRS.md before building; see docs/TEST_LOG.md for actual verification results.
 
 ## Stack
 
@@ -54,6 +54,8 @@ For an existing clone, run git pull --ff-only from the project folder, let Andro
 ## Recipe matching check
 
 Add Eggs with quantity 2 and unit count, and Butter with quantity 10 and unit g. Open Recipes from the toolbar or overflow menu. Scrambled eggs should appear. Reduce Butter to 9 g and return to Recipes; it must disappear. Change Butter to 0.01 kg and it should appear again. Deleting either required ingredient must exclude it. No pantry staples are assumed to be available automatically.
+
+Tap Scrambled eggs to open its full ingredients and numbered method. Use Back to return to Suggestions, then back to Pantry. The database recipe ID is passed through an Intent; recipe data stays in SQLite rather than being copied into the Intent.
 
 ## Toolchain reference
 

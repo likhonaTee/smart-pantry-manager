@@ -100,3 +100,13 @@ Suggestions are independent cooking options and do not consume stock. Invalid em
 | 2026-10-23 | Suggestions milestone checks | Build all tests and lint pass | scripts/check.sh passed; 35 tests passed; lint reports No issues found | Pass |
 
 The pantry and suggestions layouts use an outer inset container to preserve the inner 24 dp content margins. Lint's UselessParent warning is suppressed only on those deliberate inner containers, with an explanatory XML comment. Updated layouts still need emulator visual review.
+
+## Recipe details milestone
+
+| Date | Check | Expected result | Observed result | Status |
+| --- | --- | --- | --- | --- |
+| 2026-10-23 | Recipe detail content and missing ID | Every ingredient and method displayed; unknown ID handled safely | 2 RecipeDetailActivity tests passed | Pass |
+| 2026-10-23 | Recipe selection Intent | Correct database recipe ID passed to details | All 3 SuggestionsActivity tests passed | Pass |
+| 2026-10-23 | Clean recipe details build | Clean build all tests and lint pass | Clean build then scripts/check.sh passed; 38 tests passed; lint reports No issues found | Pass |
+
+An incremental build retained duplicate generated R array classes during the layout change. Running Gradle clean and rebuilding resolved the generated-output conflict without changing application logic. The clean build verified all 38 tests. Real-device recipe details and navigation checks remain pending.
