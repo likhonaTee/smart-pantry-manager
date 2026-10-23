@@ -47,7 +47,7 @@ public class PantryAdapter extends BaseAdapter {
         TextView name = row.findViewById(R.id.item_name);
         TextView quantity = row.findViewById(R.id.item_quantity);
         name.setText(item.name);
-        quantity.setText(context.getString(R.string.quantity_and_unit, item.quantity, item.unit));
+        quantity.setText(UnitPreferences.formatQuantity(context, item.quantity, item.unit));
         return row;
     }
 }

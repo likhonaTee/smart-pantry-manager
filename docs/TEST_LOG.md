@@ -110,3 +110,14 @@ The pantry and suggestions layouts use an outer inset container to preserve the 
 | 2026-10-23 | Clean recipe details build | Clean build all tests and lint pass | Clean build then scripts/check.sh passed; 38 tests passed; lint reports No issues found | Pass |
 
 An incremental build retained duplicate generated R array classes during the layout change. Running Gradle clean and rebuilding resolved the generated-output conflict without changing application logic. The clean build verified all 38 tests. Real-device recipe details and navigation checks remain pending.
+
+## Settings and completed screen implementation
+
+| Date | Check | Expected result | Observed result | Status |
+| --- | --- | --- | --- | --- |
+| 2026-10-23 | Settings selection and formatting | Choice restored on recreation; metric display converted exactly; count unchanged | 3 SettingsActivity tests passed | Pass |
+| 2026-10-23 | Preference isolation | Saved stock and strict matching unaffected by display choice | Settings integration test confirmed unchanged stored quantity unit and matching recipe IDs | Pass |
+| 2026-10-23 | Five screen build checks | Debug build all tests and lint pass | scripts/check.sh passed; 41 tests passed; lint reports No issues found | Pass |
+| 2026-10-23 | Final recipe settings and screen flow acceptance | Verify on user's emulator or phone and capture real evidence | Awaiting user check after latest pull | Not run |
+
+All five required screen classes are implemented. The 41 host tests comprise 6 database, 6 ingredient form, 4 pantry Activity, 6 name/unit helper, 11 matcher, 3 suggestions Activity, 2 recipe detail Activity and 3 settings Activity tests. Native UI appearance, large-font and landscape layout, whole-app restart persistence and the narrated demonstration still need user evidence. No screenshots or execution results have been invented.

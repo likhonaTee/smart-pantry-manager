@@ -35,6 +35,12 @@
     <string name="recipe_ingredients_heading">Ingredients required</string>
     <string name="recipe_method_heading">Method</string>
     <string name="recipe_unavailable">This recipe is not available. Please return to Suggested recipes.</string>
+    <string name="settings">Settings</string>
+    <string name="units_heading">Display units</string>
+    <string name="units_description">Choose how quantities appear in your pantry and recipe details. This changes the display only.</string>
+    <string name="units_small_label">Grams and millilitres (g, ml)</string>
+    <string name="units_large_label">Kilograms and litres (kg, l)</string>
+    <string name="units_count_description">Count stays the same. Your choice is saved automatically.</string>
     <string-array name="ingredient_units">
         <item>g</item>
         <item>kg</item>
