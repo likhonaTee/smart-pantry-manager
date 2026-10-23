@@ -4,7 +4,7 @@ A planned Java Android app that tracks pantry ingredients and suggests recipes o
 
 ## Current state
 
-The Java Android app includes SQLite tables, 20 starter recipes, pantry CRUD, strict recipe matching and recipe details. Open Recipes from the toolbar or overflow menu to see only recipes whose complete ingredient requirements are met, then tap a recipe to read its ingredients and method. The required settings screen is next. The repository is https://github.com/likhonaTee/smart-pantry-manager. Read docs/FRS.md before building; see docs/TEST_LOG.md for actual verification results.
+All five required screens are implemented: Pantry, Add/Edit Ingredient, Suggested Recipes, Recipe Detail and Settings. The app uses SQLite, 20 starter recipes and strict quantity matching. Open Recipes from the toolbar or overflow menu, then tap a suggestion for its ingredients and method. Settings changes display units only. The repository is https://github.com/likhonaTee/smart-pantry-manager. Read docs/FRS.md before building; see docs/TEST_LOG.md for actual verification results and outstanding emulator checks. The final report and narrated video are not included yet.
 
 ## Stack
 
@@ -56,6 +56,10 @@ For an existing clone, run git pull --ff-only from the project folder, let Andro
 Add Eggs with quantity 2 and unit count, and Butter with quantity 10 and unit g. Open Recipes from the toolbar or overflow menu. Scrambled eggs should appear. Reduce Butter to 9 g and return to Recipes; it must disappear. Change Butter to 0.01 kg and it should appear again. Deleting either required ingredient must exclude it. No pantry staples are assumed to be available automatically.
 
 Tap Scrambled eggs to open its full ingredients and numbered method. Use Back to return to Suggestions, then back to Pantry. The database recipe ID is passed through an Intent; recipe data stays in SQLite rather than being copied into the Intent.
+
+## Settings check
+
+Open Settings through the three-dot menu on Pantry or Suggested Recipes. Choose kilograms and litres, then return to Pantry. Butter saved as 10 g should display as 0.01 kg; eggs stay in count. Recipe details use the same preference. The edit form retains the saved quantity and unit so editing does not silently change stored stock. Close and reopen the app to check that the preference remains selected. Suggested recipes must stay the same when only display units change.
 
 ## Toolchain reference
 

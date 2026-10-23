@@ -65,6 +65,10 @@ public class SuggestionsActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.nav_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        }
         if (item.getItemId() == android.R.id.home || item.getItemId() == R.id.nav_pantry) {
             finish();
             return true;

@@ -2,9 +2,9 @@
 
 ## Document control
 
-Version 1.3 | 23 October 2026 | Status: baseline for development
+Version 1.4 | 23 October 2026 | Status: implemented baseline awaiting final emulator acceptance
 Module: Mobile App Development 700
-Implementation status: SQLite storage, 20 recipe seeds, the pantry list and the add/edit/delete ingredient form are implemented. Recipe matching, suggestions, details and settings remain planned. Consult TEST_LOG.md for actual build and test results; emulator visual checks are still required for the new screens.
+Implementation status: All five screens, SQLite pantry CRUD, 20 recipe seeds, strict matching, recipe details and persisted display settings are implemented. Consult TEST_LOG.md for actual build and test results. The new recipe and settings screens still need emulator visual acceptance; final report and video evidence remain outstanding.
 
 ## Purpose
 
@@ -44,7 +44,7 @@ Use clear class, method and variable names. Prefer ordinary loops, if statements
 
 ## Proposed classes
 
-PantryActivity, IngredientActivity, SuggestionsActivity, RecipeDetailActivity and SettingsActivity handle screens. DatabaseHelper handles SQL and seeding. PantryAdapter displays pantry rows. PantryItem, Recipe and RecipeIngredient hold data. RecipeMatcher contains matching rules; IngredientUtils holds the small alias and unit conversion helpers. Add another class only when it clearly makes the code simpler.
+PantryActivity, IngredientActivity, SuggestionsActivity, RecipeDetailActivity and SettingsActivity handle screens. DatabaseHelper handles SQL and seeding. PantryAdapter displays pantry rows. PantryItem, Recipe and RecipeIngredient hold data. RecipeMatcher contains matching rules; IngredientUtils holds the small alias and unit conversion helpers. UnitPreferences shares the display preference and quantity formatting between Pantry and Recipe Detail. Add another class only when it clearly makes the code simpler.
 
 ## Excluded features
 
@@ -159,7 +159,7 @@ Verify exactly 20 recipes and no duplicate seeding after restart. Inspect every 
 
 ## Recording results
 
-Automate matching and validation edge cases with small Java unit tests when those classes exist. Run UI, persistence and lifecycle checks on an emulator or device. Record actual date, requirement ID, expected result, observed result and pass/fail in docs/TEST_LOG.md. Attach real running-app screenshots to the final report. All checks above are planned, not passed.
+Matching and validation edge cases are covered by Java tests, alongside Robolectric database and Activity checks. Run the remaining UI, persistence and lifecycle acceptance checks on an emulator or device. Record actual date, requirement ID, expected result, observed result and pass/fail in docs/TEST_LOG.md. Attach real running-app screenshots to the final report. Consult the log for completed checks; do not infer that all emulator acceptance checks have passed.
 
 # 6 Development and commit pipeline
 

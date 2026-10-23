@@ -37,7 +37,7 @@ public class RecipeDetailActivity extends Activity {
             StringBuilder ingredients = new StringBuilder();
             for (RecipeIngredient ingredient : recipe.ingredients) {
                 ingredients.append(ingredient.ingredientKey).append(": ");
-                ingredients.append(getString(R.string.quantity_and_unit,
+                ingredients.append(UnitPreferences.formatQuantity(this,
                         ingredient.quantity, ingredient.unit)).append("\n");
             }
             ((TextView) findViewById(R.id.recipe_ingredients)).setText(ingredients.toString().trim());

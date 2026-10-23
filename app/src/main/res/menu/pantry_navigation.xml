@@ -8,4 +8,8 @@
         android:id="@+id/nav_recipes"
         android:showAsAction="ifRoom"
         android:title="@string/recipes_menu" />
+    <item
+        android:id="@+id/nav_settings"
+        android:showAsAction="never"
+        android:title="@string/settings" />
 </menu>

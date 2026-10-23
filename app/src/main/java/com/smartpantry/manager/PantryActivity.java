@@ -51,6 +51,10 @@ public class PantryActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.nav_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        }
         if (item.getItemId() == R.id.nav_recipes) {
             startActivity(new Intent(this, SuggestionsActivity.class));
             return true;
