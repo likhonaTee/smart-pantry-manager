@@ -5,4 +5,5 @@
     <color name="pantry_card">#EAF0E6</color>
     <color name="pantry_text">#202E25</color>
     <color name="pantry_muted">#526157</color>
+    <color name="pantry_delete">#9B2525</color>
 </resources>

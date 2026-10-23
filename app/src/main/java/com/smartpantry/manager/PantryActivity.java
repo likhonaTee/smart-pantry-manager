@@ -22,6 +22,11 @@ public class PantryActivity extends Activity {
         list.setEmptyView(findViewById(R.id.pantry_empty));
         findViewById(R.id.add_ingredient).setOnClickListener(view ->
                 startActivity(new Intent(this, IngredientActivity.class)));
+        list.setOnItemClickListener((parent, view, position, id) -> {
+            Intent intent = new Intent(this, IngredientActivity.class);
+            intent.putExtra(IngredientActivity.EXTRA_INGREDIENT_ID, adapter.getItem(position).id);
+            startActivity(intent);
+        });
     }
 
     @Override

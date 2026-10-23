@@ -17,6 +17,13 @@
     <string name="invalid_name">Enter an ingredient name of 1 to 60 characters.</string>
     <string name="invalid_quantity">Enter an amount above 0 and up to 1000000, using at most 3 decimal places.</string>
     <string name="ingredient_save_error">Could not save your ingredient. Your entries are still here. Please try again.</string>
+    <string name="edit_ingredient">Edit ingredient</string>
+    <string name="delete_ingredient">Delete ingredient</string>
+    <string name="delete_ingredient_title">Delete this ingredient?</string>
+    <string name="delete_ingredient_message">This will remove the saved ingredient from your pantry.</string>
+    <string name="cancel">Cancel</string>
+    <string name="ingredient_unavailable">This ingredient is no longer available. Please reopen it from your pantry.</string>
+    <string name="ingredient_delete_error">Could not delete this ingredient. Please try again.</string>
     <string-array name="ingredient_units">
         <item>g</item>
         <item>kg</item>

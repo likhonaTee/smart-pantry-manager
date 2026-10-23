@@ -2,9 +2,9 @@
 
 ## Document control
 
-Version 1.2 | 23 October 2026 | Status: baseline for development
+Version 1.3 | 23 October 2026 | Status: baseline for development
 Module: Mobile App Development 700
-Implementation status: Android foundation and SQLite storage with 20 recipes implemented. Pantry screen integration and remaining features are in progress. Consult TEST_LOG.md for actual build and test results.
+Implementation status: SQLite storage, 20 recipe seeds, the pantry list and the add/edit/delete ingredient form are implemented. Recipe matching, suggestions, details and settings remain planned. Consult TEST_LOG.md for actual build and test results; emulator visual checks are still required for the new screens.
 
 ## Purpose
 

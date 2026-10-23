@@ -18,7 +18,7 @@ Before every feature, read FRS.md and identify the requirement and acceptance ch
 | 12 | Fix issues found during app testing | Resolve actual failures; skip if no fixes needed |
 | 13 | Add setup guide and evidence checklist | Reproduce setup and review real evidence |
 
-Milestone 1 is uploaded. Milestone 2 creates the Android project foundation and its first screen; consult TEST_LOG.md for completed checks and remaining device checks. Database and feature work start with milestone 3. Never commit planned features before building them. Add meaningful fix commits as necessary.
+Milestones 1 through 6 are implemented and checked on the build machine. Name cleaning was added with milestone 5 so saved rows use canonical ingredient keys. Unit conversions and strict recipe matching are next. Consult TEST_LOG.md for actual results and remaining emulator checks. Never commit planned features before building them. Add meaningful fix commits as necessary.
 
 ## Per change pipeline
 

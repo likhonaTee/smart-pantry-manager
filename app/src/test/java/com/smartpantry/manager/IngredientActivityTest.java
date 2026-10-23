@@ -1,5 +1,9 @@
 package com.smartpantry.manager;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Looper;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -10,8 +14,10 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
+import org.robolectric.Shadows;
 import org.robolectric.android.controller.ActivityController;
 import org.robolectric.annotation.Config;
+import org.robolectric.shadows.ShadowAlertDialog;
 
 import static org.junit.Assert.*;
 
@@ -69,6 +75,61 @@ public class IngredientActivityTest {
                 .getText().toString());
         assertEquals(1, ((Spinner) controller.get().findViewById(R.id.ingredient_unit))
                 .getSelectedItemPosition());
+    }
+
+    @Test
+    public void editsTheExistingRecordAfterRecreation() {
+        long id;
+        try (DatabaseHelper database = new DatabaseHelper(controller.get())) {
+            id = database.addPantryItem("Eggs", "egg", "2", "count");
+        }
+        openForEdit(id);
+        assertEquals("2", ((EditText) controller.get().findViewById(R.id.ingredient_quantity))
+                .getText().toString());
+        enter("Eggs", "3", 4);
+        controller.recreate();
+        controller.get().findViewById(R.id.save_ingredient).performClick();
+        try (DatabaseHelper database = new DatabaseHelper(controller.get())) {
+            assertEquals(1, database.getPantryItems().size());
+            assertEquals("3", database.getPantryItem(id).quantity);
+        }
+    }
+
+    @Test
+    public void deletionRequiresConfirmationAndCanBeCancelled() {
+        long id;
+        try (DatabaseHelper database = new DatabaseHelper(controller.get())) {
+            id = database.addPantryItem("Rice", "rice", "500", "g");
+        }
+        openForEdit(id);
+        controller.get().findViewById(R.id.delete_ingredient).performClick();
+        AlertDialog dialog = ShadowAlertDialog.getLatestAlertDialog();
+        dialog.getButton(DialogInterface.BUTTON_NEGATIVE).performClick();
+        Shadows.shadowOf(Looper.getMainLooper()).idle();
+        try (DatabaseHelper database = new DatabaseHelper(controller.get())) {
+            assertNotNull(database.getPantryItem(id));
+        }
+        controller.get().findViewById(R.id.delete_ingredient).performClick();
+        ShadowAlertDialog.getLatestAlertDialog().getButton(DialogInterface.BUTTON_POSITIVE)
+                .performClick();
+        Shadows.shadowOf(Looper.getMainLooper()).idle();
+        try (DatabaseHelper database = new DatabaseHelper(controller.get())) {
+            assertNull(database.getPantryItem(id));
+        }
+        assertTrue(controller.get().isFinishing());
+    }
+
+    @Test
+    public void missingRecordClosesSafely() {
+        openForEdit(99999);
+        assertTrue(controller.get().isFinishing());
+    }
+
+    private void openForEdit(long id) {
+        controller.pause().stop().destroy();
+        Intent intent = new Intent(RuntimeEnvironment.getApplication(), IngredientActivity.class);
+        intent.putExtra(IngredientActivity.EXTRA_INGREDIENT_ID, id);
+        controller = Robolectric.buildActivity(IngredientActivity.class, intent).setup();
     }
 
     private void enter(String name, String quantity, int unit) {

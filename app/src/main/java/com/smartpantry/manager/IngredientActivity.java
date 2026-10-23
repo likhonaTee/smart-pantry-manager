@@ -1,14 +1,18 @@
 package com.smartpantry.manager;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class IngredientActivity extends Activity {
+    public static final String EXTRA_INGREDIENT_ID = "ingredient_id";
+    private long ingredientId = -1;
     private DatabaseHelper database;
     private EditText nameField;
     private EditText quantityField;
@@ -29,6 +33,32 @@ public class IngredientActivity extends Activity {
         unitSpinner = findViewById(R.id.ingredient_unit);
         errorMessage = findViewById(R.id.ingredient_error);
         findViewById(R.id.save_ingredient).setOnClickListener(view -> saveIngredient());
+        findViewById(R.id.delete_ingredient).setOnClickListener(view -> confirmDelete());
+        if (getIntent().hasExtra(EXTRA_INGREDIENT_ID)) {
+            ingredientId = getIntent().getLongExtra(EXTRA_INGREDIENT_ID, -1);
+            try {
+                PantryItem item = database.getPantryItem(ingredientId);
+                if (item == null) {
+                    ingredientUnavailable();
+                    return;
+                }
+                setTitle(R.string.edit_ingredient);
+                findViewById(R.id.delete_ingredient).setVisibility(android.view.View.VISIBLE);
+                if (savedInstanceState == null) {
+                    nameField.setText(item.name);
+                    quantityField.setText(item.quantity);
+                    String[] units = getResources().getStringArray(R.array.ingredient_units);
+                    for (int i = 0; i < units.length; i++) {
+                        if (units[i].equals(item.unit)) {
+                            unitSpinner.setSelection(i);
+                        }
+                    }
+                }
+            } catch (SQLiteException exception) {
+                ingredientUnavailable();
+                return;
+            }
+        }
         if (savedInstanceState != null) {
             nameField.setText(savedInstanceState.getString("name"));
             quantityField.setText(savedInstanceState.getString("quantity"));
@@ -54,11 +84,41 @@ public class IngredientActivity extends Activity {
         }
         String unit = unitSpinner.getSelectedItem().toString();
         try {
-            database.addPantryItem(name, IngredientUtils.canonicalName(name), quantity, unit);
+            String key = IngredientUtils.canonicalName(name);
+            if (ingredientId == -1) {
+                database.addPantryItem(name, key, quantity, unit);
+            } else if (!database.updatePantryItem(ingredientId, name, key, quantity, unit)) {
+                ingredientUnavailable();
+                return;
+            }
             finish();
         } catch (SQLiteException exception) {
             errorMessage.setText(R.string.ingredient_save_error);
         }
+    }
+
+    private void confirmDelete() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.delete_ingredient_title)
+                .setMessage(R.string.delete_ingredient_message)
+                .setNegativeButton(R.string.cancel, null)
+                .setPositiveButton(R.string.delete_ingredient, (dialog, which) -> {
+                    try {
+                        if (database.deletePantryItem(ingredientId)) {
+                            finish();
+                        } else {
+                            ingredientUnavailable();
+                        }
+                    } catch (SQLiteException exception) {
+                        errorMessage.setText(R.string.ingredient_delete_error);
+                    }
+                })
+                .show();
+    }
+
+    private void ingredientUnavailable() {
+        Toast.makeText(this, R.string.ingredient_unavailable, Toast.LENGTH_LONG).show();
+        finish();
     }
 
     @Override

@@ -2,7 +2,7 @@
 
 Use the actual execution date. Identify the requirement, expected result, observed result and pass/fail. Record build, test and lint outcomes with the toolchain when Android exists.
 
-The Android foundation exists with one Java Activity and an XML pantry landing screen. No behavioural unit tests or device tests exist yet. See FRS.md section 5 for the planned feature acceptance checks. Rows below preserve earlier results and later verification separately.
+The entries below record each development milestone in order. Initial results refer to the screen-only foundation; later entries cover the database and pantry features. See FRS.md section 5 for the full planned feature acceptance checks. Build-machine tests are distinguished from emulator evidence.
 
 | Date | Check | Expected result | Observed result | Status |
 | --- | --- | --- | --- | --- |
@@ -61,3 +61,15 @@ The GitHub run for 5b0cc4a stopped at SDK setup before app checks because setup-
 | 2026-10-23 | Full form milestone checks | Build all tests and lint pass | scripts/check.sh passed; 14 total tests passed; lint reports No issues found | Pass |
 
 Name cleaning is introduced with data entry so saved rows already use canonical keys. Unit conversions remain planned with recipe matching. The updated form still needs user emulator review.
+
+## Editing and deletion milestone
+
+| Date | Check | Expected result | Observed result | Status |
+| --- | --- | --- | --- | --- |
+| 2026-10-23 | Edit recreation delete confirmation and missing IDs | Existing ID updated; cancellation preserves stock; confirmed delete removes it; missing ID returns safely | All 6 IngredientActivity tests passed | Pass |
+| 2026-10-23 | Pantry Intents and refresh | Add has no edit ID; row selection passes the correct ID; list refreshes | All 4 PantryActivity tests passed | Pass |
+| 2026-10-23 | Full pantry checks | Debug build all tests and lint pass | scripts/check.sh passed; 19 tests passed; lint reports No issues found | Pass |
+| 2026-10-23 | GitHub SDK fix and add form runs | Cloud workflow completes | Runs 39949489073 and 39949621651 completed successfully | Pass |
+| 2026-10-23 | Updated pantry and form on user emulator | Add edit cancel delete restart rotation and large fonts work visually | User test still required after pulling latest changes | Not run |
+
+The initial deletion-confirmation test checked the row before Android processed the dialog callback. Waiting for the main looper in that test resolved the failure; the final test run passed. These host tests do not replace the user's on-device evidence for the report.
